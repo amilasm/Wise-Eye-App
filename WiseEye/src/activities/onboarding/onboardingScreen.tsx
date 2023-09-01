@@ -36,7 +36,6 @@ const OnboardingScreen = () => {
         data={data}
         renderItem={({index, item}) => <>{item.component}</>}
       />
-      {/* <SvgComponent2></SvgComponent2> */}
     </View>
   );
 };
