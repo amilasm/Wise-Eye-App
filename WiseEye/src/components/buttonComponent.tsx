@@ -2,9 +2,10 @@ import {View, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {scale} from 'react-native-size-matters';
 
-const ButtonComponent = () => {
+const ButtonComponent = ({onPress}: any) => {
   return (
     <TouchableOpacity
+      onPress={onPress}
       style={{
         justifyContent: 'center',
         alignItems: 'center',

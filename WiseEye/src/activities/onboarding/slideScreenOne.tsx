@@ -12,7 +12,7 @@ const SlideScreenOne = () => {
         flex: 1,
       }}>
       <SvgComponent2 />
-      {/* <Text>SlideScreenOne</Text> */}
+      <Text>SlideScreenOne</Text>
       <View
         style={{
           justifyContent: 'center',

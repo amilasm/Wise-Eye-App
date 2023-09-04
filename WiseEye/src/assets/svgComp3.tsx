@@ -16,6 +16,18 @@ function SvgComponent3(props) {
         fill="#1DC48C"
       />
     </Svg>
+    // <Svg
+    //   width={scale(451)}
+    //   height={scale(308.95)}
+    //   viewBox="0 0 375 348"
+    //   fill="none"
+    //   xmlns="http://www.w3.org/2000/svg"
+    //   {...props}>
+    //   <Path
+    //     d="M374.941 27.405V0c-9.609 0-24.939.006-33.131 0H0v150.5C62 208 228.938 314.98 309.671 321.486c27.037 2.169 48.496-2.739 65.329-10.734l-.059-283.347z"
+    //     fill="#1DC48C"
+    //   />
+    // </Svg>
   );
 }
 

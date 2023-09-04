@@ -5,8 +5,8 @@ import Svg, {Path, Defs, Pattern, Use, Image} from 'react-native-svg';
 function WiseEyeLogo(props) {
   return (
     <Svg
-      width={scale(180)}
-      height={scale(150)}
+      width={scale(150)}
+      height={scale(90)}
       viewBox="0 0 231 231"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

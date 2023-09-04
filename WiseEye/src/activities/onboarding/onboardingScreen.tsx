@@ -36,6 +36,7 @@ const OnboardingScreen = () => {
         data={data}
         renderItem={({index, item}) => <>{item.component}</>}
       />
+      {/* <SlideScreenOne /> */}
     </View>
   );
 };

@@ -6,6 +6,7 @@ import {stackNames} from '../constants/stackNames';
 import AuthStack from './stacks/authStack';
 import Tabs from './tabNavigation';
 import OnboardingStack from './stacks/onboardingStack';
+import DashboardStack from './stacks/dashboardStack';
 
 const RootStackNav = createNativeStackNavigator();
 
@@ -32,6 +33,11 @@ const RootNavigationStack = () => {
         <RootStackNav.Screen
           name={stackNames.TAB_STACK}
           component={Tabs}
+          options={navConfig}
+        />
+        <RootStackNav.Screen
+          name={stackNames.DASHBOARD_STACK}
+          component={DashboardStack}
           options={navConfig}
         />
       </RootStackNav.Navigator>

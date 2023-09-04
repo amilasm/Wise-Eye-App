@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1044899317443",
+    "project_id": "wiseeye-59649",
+    "storage_bucket": "wiseeye-59649.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1044899317443:android:e055e254d9217ef8660476",
+        "android_client_info": {
+          "package_name": "com.wiseeye"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1044899317443-jt6h77lho7d7b4tlvdd3a3s9uok94a93.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9AFBI8fNIIWSMsBLx_w77i9Gij7DjUgA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1044899317443-jt6h77lho7d7b4tlvdd3a3s9uok94a93.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
