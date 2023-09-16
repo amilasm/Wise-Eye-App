@@ -1,7 +1,7 @@
 import {View, Text} from 'react-native';
 import React from 'react';
 
-const NotificationsCard = ({accidentId, date, location, status}) => {
+const VoiceCard = ({voiceId, date, voice, status}) => {
   return (
     <View
       style={{
@@ -28,25 +28,26 @@ const NotificationsCard = ({accidentId, date, location, status}) => {
               fontWeight: '700',
               fontSize: 15,
             }}>
-            {`Accident ${accidentId}`}
+            {`VoiceId ${voiceId}`}
           </Text>
           <Text
             style={{
               fontWeight: '300',
               fontSize: 15,
-              marginTop: 5,
+              marginTop: 3,
             }}>
             {date}
           </Text>
-        </View>
-        <View>
           <Text
             style={{
-              fontWeight: '200',
-              fontSize: 15,
+              fontWeight: '300',
+              fontSize: 13,
+              //   marginTop: 5,
             }}>
-            {`Location : ${location}`}
+            {voice}
           </Text>
+        </View>
+        <View>
           <Text
             style={{
               fontWeight: '300',
@@ -63,4 +64,4 @@ const NotificationsCard = ({accidentId, date, location, status}) => {
   );
 };
 
-export default NotificationsCard;
+export default VoiceCard;

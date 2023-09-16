@@ -25,8 +25,11 @@ const SlideScreenTwo = () => {
         <Text
           style={{
             marginBottom: scale(20),
+            justifyContent: 'center',
+            textAlign: 'center',
+            fontWeight: '300',
           }}>
-          sdsdsd
+          It always a blessing to learn about the wisdom from elderly people.
         </Text>
         <SlideDots twoActive={true} />
       </View>

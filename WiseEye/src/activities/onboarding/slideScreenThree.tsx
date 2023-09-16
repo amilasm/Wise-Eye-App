@@ -38,6 +38,8 @@ const SlideScreenThree = () => {
               width: '100%',
               backgroundColor: '#1DC48C',
               borderRadius: 10,
+              marginBottom: 10,
+              marginTop: 10,
             }}>
             <Text
               style={{

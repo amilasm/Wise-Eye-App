@@ -12,7 +12,7 @@ const SlideScreenOne = () => {
         flex: 1,
       }}>
       <SvgComponent2 />
-      <Text>SlideScreenOne</Text>
+
       <View
         style={{
           justifyContent: 'center',
@@ -22,8 +22,13 @@ const SlideScreenOne = () => {
         <Text
           style={{
             marginBottom: scale(20),
+            justifyContent: 'center',
+            textAlign: 'center',
+            fontWeight: '300',
+            marginTop: 10,
           }}>
-          sdsdsd
+          Appeal with respect to elderly people as you would to the members of
+          your own family.
         </Text>
         <SlideDots oneActive={true} />
       </View>

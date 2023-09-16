@@ -1,6 +1,7 @@
 export const screenNames = {
   LOGIN: 'Login',
-  DASHBOARD: 'Dashboard',
+  DASHBOARD: 'DashboardScreen',
   ONBOARDING: 'Onboarding',
   QRSCANNER: 'QrScanner',
+  ACTIVTIY: 'ActivityScreen',
 };

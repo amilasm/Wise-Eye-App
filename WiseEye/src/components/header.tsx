@@ -1,12 +1,13 @@
-import {View, Text} from 'react-native';
+import {View, Text, Image} from 'react-native';
 import React from 'react';
+import {scale} from 'react-native-size-matters';
 
 const Header = () => {
   return (
     <View
       style={{
         flexDirection: 'row',
-        justifyContent: 'space-between',
+        justifyContent: 'center',
         alignItems: 'center',
         borderBottomColor: '#F2F4F5',
         borderBottomWidth: 2,
@@ -19,13 +20,21 @@ const Header = () => {
           alignItems: 'center',
           justifyContent: 'center',
         }}>
-        <Text
+        {/* <Text
           style={{
             fontSize: 22,
             fontWeight: 600,
-          }}>
-          Dashboard
-        </Text>
+          }}></Text> */}
+
+        <Image
+          style={{
+            width: scale(105),
+            height: scale(32),
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+          source={require('../assets/logo.png')}
+        />
       </View>
     </View>
   );
