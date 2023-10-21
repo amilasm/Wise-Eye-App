@@ -8,6 +8,7 @@ import LiveIcon from '../assets/liveIcon';
 import ActivityIcon from '../assets/activityIcon';
 import AlertIcon from '../assets/alertIcon';
 import ActivityStack from './stacks/activityStack';
+import LiveStack from './stacks/liveStack';
 
 const Tab = createBottomTabNavigator();
 // screens related to the tab bar
@@ -16,7 +17,7 @@ const Tabs = () => {
     <Tab.Navigator
       initialRouteName={screenNames.DASHBOARD}
       screenOptions={{
-        tabBarActiveTintColor: '#0BE9A6',
+        tabBarActiveTintColor: '#575C6C',
       }}>
       <Tab.Screen
         name={stackNames.DASHBOARD_STACK}
@@ -30,7 +31,7 @@ const Tabs = () => {
       />
       <Tab.Screen
         name={stackNames.LIVE_STACK}
-        component={DashboardStack}
+        component={LiveStack}
         options={{
           ...navConfig,
           tabBarIcon: ({color, size, focused}) => (

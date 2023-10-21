@@ -1,65 +1,99 @@
 import {View, Text} from 'react-native';
 import React from 'react';
+import StatusBadge from './statusBadge';
+import AccidentRound from './accidentRound';
+import VoiceRound from './voiceRound';
+import MessageIcon from '../assets/messageIcon';
 
 const VoiceCard = ({voiceId, date, voice, status}) => {
   return (
     <View
       style={{
-        width: 345,
-        height: 72,
-        borderColor: '#1DC48C',
-        borderLeftWidth: 10,
-        // borderEndWidth: 10,
-        borderBottomWidth: 2,
-        borderRadius: 20,
-        marginTop: 10,
-        backgroundColor: '#ffff',
+        flex: 1,
+        marginLeft: 25,
+        paddingBottom: 20,
       }}>
       <View
         style={{
+          flex: 1,
           flexDirection: 'row',
           justifyContent: 'space-between',
-          marginHorizontal: 10,
-          marginTop: 5,
+          width: '100%',
+          // marginRight: 10,
+          marginLeft: 10,
         }}>
-        <View>
-          <Text
-            style={{
-              fontWeight: '700',
-              fontSize: 15,
-            }}>
-            {`VoiceId ${voiceId}`}
-          </Text>
-          <Text
-            style={{
-              fontWeight: '300',
-              fontSize: 15,
-              marginTop: 3,
-            }}>
-            {date}
-          </Text>
-          <Text
-            style={{
-              fontWeight: '300',
-              fontSize: 13,
-              //   marginTop: 5,
-            }}>
-            {voice}
-          </Text>
+        <View
+          style={{
+            alignItems: 'center',
+            justifyContent: 'center',
+            flexDirection: 'row',
+          }}>
+          <VoiceRound />
+          <View>
+            <View
+              style={{
+                flexDirection: 'row',
+                marginLeft: 10,
+              }}>
+              <Text
+                style={{
+                  fontSize: 14,
+                  color: '#000000',
+                  fontWeight: '600',
+                }}>
+                Voice Detected
+              </Text>
+              <Text
+                style={{
+                  color: '#00000080',
+                  fontWeight: '500',
+                  marginLeft: 10,
+                }}>
+                5 mins ago
+              </Text>
+            </View>
+            <View
+              style={{
+                flexDirection: 'row',
+                marginLeft: 10,
+                alignItems: 'center',
+              }}>
+              <View
+                style={{
+                  marginTop: 2,
+                }}>
+                <MessageIcon />
+              </View>
+              <Text
+                style={{
+                  marginLeft: 10,
+                  width: 160,
+                }}
+                ellipsizeMode="tail"
+                numberOfLines={1}>
+                {voice}
+              </Text>
+            </View>
+          </View>
         </View>
-        <View>
-          <Text
-            style={{
-              fontWeight: '300',
-              fontSize: 13,
-              marginTop: 5,
-              color: 'red',
-              textAlign: 'center',
-            }}>
-            {`status :  ${status}`}
-          </Text>
+
+        <View
+          style={{
+            marginRight: 10,
+          }}>
+          <StatusBadge isVoice={true} />
         </View>
       </View>
+      <View
+        style={{
+          marginLeft: 10,
+          marginRight: 10,
+
+          marginTop: 15,
+          height: 0.5,
+          backgroundColor: '#00000080',
+        }}
+      />
     </View>
   );
 };

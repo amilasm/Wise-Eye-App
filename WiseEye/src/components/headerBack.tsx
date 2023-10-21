@@ -1,18 +1,27 @@
-import {View, Text, Image} from 'react-native';
+import {View, Text, Image, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {scale} from 'react-native-size-matters';
+import BackIcon from '../assets/backIcon';
+import {useNavigation} from '@react-navigation/native';
 
-const Header = ({isNotDashboard, text}) => {
+const HederBack = ({isNotDashboard, text}) => {
+  const navigation = useNavigation();
   return (
     <View
       style={{
         flexDirection: 'row',
-        justifyContent: 'center',
+        justifyContent: 'space-between',
         alignItems: 'center',
         borderBottomColor: '#F2F4F5',
         borderBottomWidth: 2,
         // elevation: 1.5,
       }}>
+      <TouchableOpacity
+        onPress={() => {
+          navigation.goBack();
+        }}>
+        <BackIcon />
+      </TouchableOpacity>
       <View
         style={{
           marginHorizontal: 20,
@@ -48,8 +57,9 @@ const Header = ({isNotDashboard, text}) => {
           />
         )}
       </View>
+      <View></View>
     </View>
   );
 };
 
-export default Header;
+export default HederBack;

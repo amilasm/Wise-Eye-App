@@ -4,74 +4,89 @@ import {scale} from 'react-native-size-matters';
 import WiseEyeLogo from '../assets/wiseEyeLogo';
 import DeviceActive from '../assets/deviceActive';
 import DeviceDeactivated from '../assets/deviceDeactivated';
+import TempIcon from '../assets/tempIcon';
 
-const DashboardCard = ({isActive}) => {
+const DashboardCard = ({isGasCard, isActive}) => {
   return (
     <View
       style={{
-        width: scale(167),
+        width: scale(160),
         height: scale(156),
         display: 'flex',
         alignItems: 'center',
-        // justifyContent: 'center',
-        backgroundColor: '#F9F9F9',
-        elevation: 2.5,
+        justifyContent: 'center',
+        backgroundColor: '#F5F5F5',
+        // elevation: 2.5,
         borderRadius: 20,
       }}>
       <View
         style={{
-          marginTop: 10,
+          // marginTop: 10,
           alignItems: 'center',
+          justifyContent: 'center',
         }}>
-        <Image
-          style={{
-            width: scale(105),
-            height: scale(32),
-          }}
-          source={require('../assets/logo.png')}
-        />
-        {/* <View
-          style={{
-            height: 50,
-          }}>
-          <WiseEyeLogo />
-        </View> */}
+        {isActive ? (
+          <>
+            <Text
+              style={{
+                textAlign: 'center',
+                fontSize: 52,
+                fontWeight: 700,
+                color: '#000000',
 
-        <Text
-          style={{
-            textAlign: 'center',
-            fontSize: 15,
-            fontWeight: 700,
-            marginTop: 50,
-          }}>
-          Device Status
-        </Text>
+                // marginTop: 50,
+              }}>
+              36.5C
+            </Text>
+          </>
+        ) : (
+          <Text
+            style={{
+              textAlign: 'center',
+              fontSize: 52,
+              fontWeight: 700,
+              color: '#000000',
+
+              // marginTop: 50,
+            }}>
+            --.--
+          </Text>
+        )}
+
         <View
           style={{
             flexDirection: 'row',
           }}>
-          {isActive == true ? (
+          {isGasCard ? (
             <>
+              <Image
+                source={require('../assets/Gas2.png')}
+                style={{
+                  width: 20,
+                  height: 20,
+                }}
+              />
               <Text
                 style={{
-                  color: '#1DC48C',
+                  color: '#000000',
+                  marginLeft: 10,
+                  fontWeight: '500',
                 }}>
-                Online
+                Gas Level
               </Text>
-              <DeviceActive />
             </>
           ) : (
             <>
+              <TempIcon />
+
               <Text
                 style={{
-                  color: '#EB3223',
-                  fontWeight: 'bold',
+                  color: '#000000',
+                  marginLeft: 10,
+                  fontWeight: '500',
                 }}>
-                OFFLINE
+                Temperature
               </Text>
-
-              {/* <DeviceActive /> */}
-              <DeviceDeactivated />
             </>
           )}
         </View>

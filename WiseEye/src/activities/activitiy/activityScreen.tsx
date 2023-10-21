@@ -4,6 +4,7 @@ import Arrow from '../../assets/arrow';
 import DotIcon from '../../assets/dotIcon';
 import ActivityCard from '../../components/activityCard';
 import database from '@react-native-firebase/database';
+import ActivityCardV2 from '../../components/activityCardV2';
 
 const ActivityScreen = () => {
   const [activites, setActivites] = useState([]);
@@ -13,6 +14,7 @@ const ActivityScreen = () => {
       .on('value', snapshot => {
         console.log('User data: ', snapshot.val());
         const data = Object.values(snapshot.val());
+
         // Iterate through the data and group it by date
         const groupedData = {};
         data.forEach(item => {
@@ -39,64 +41,13 @@ const ActivityScreen = () => {
         // setAccidents(data);
       });
   }, []);
+
   return (
     <View
       style={{
         backgroundColor: 'white',
         flex: 1,
-      }}>
-      <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          marginTop: 10,
-          marginHorizontal: 20,
-          alignItems: 'center',
-        }}>
-        <View
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-          }}>
-          <View
-            style={{
-              marginRight: 20,
-            }}>
-            <Arrow />
-          </View>
-          <Text
-            style={{
-              fontWeight: '700',
-              fontSize: 20,
-              textAlign: 'center',
-            }}>
-            Activity Manager
-          </Text>
-        </View>
-        <View>
-          <DotIcon />
-        </View>
-      </View>
-      {/* <Text>ActivityScreen</Text> */}
-      <View
-        style={{
-          marginTop: 30,
-          marginHorizontal: 20,
-        }}>
-        <FlatList
-          data={activites}
-          renderItem={item => {
-            return (
-              <ActivityCard
-                date={item.item.date}
-                count={item.item.Items.length}
-                activityLevel={item.item.Items.length * 10}
-              />
-            );
-          }}
-        />
-      </View>
-    </View>
+      }}></View>
   );
 };
 

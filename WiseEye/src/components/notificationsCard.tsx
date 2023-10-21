@@ -1,64 +1,81 @@
 import {View, Text} from 'react-native';
 import React from 'react';
+import AccidentRound from './accidentRound';
+import StatusBadge from './statusBadge';
 
 const NotificationsCard = ({accidentId, date, location, status}) => {
   return (
     <View
       style={{
-        width: 345,
-        height: 72,
-        borderColor: '#1DC48C',
-        borderLeftWidth: 10,
-        // borderEndWidth: 10,
-        borderBottomWidth: 2,
-        borderRadius: 20,
-        marginTop: 10,
-        backgroundColor: '#ffff',
+        flex: 1,
+        marginLeft: 10,
+        paddingBottom: 20,
       }}>
       <View
         style={{
+          flex: 1,
           flexDirection: 'row',
           justifyContent: 'space-between',
-          marginHorizontal: 10,
-          marginTop: 5,
+          width: '100%',
+          // marginRight: 10,
+          marginLeft: 10,
         }}>
-        <View>
-          <Text
-            style={{
-              fontWeight: '700',
-              fontSize: 15,
-            }}>
-            {`Accident ${accidentId}`}
-          </Text>
-          <Text
-            style={{
-              fontWeight: '300',
-              fontSize: 15,
-              marginTop: 5,
-            }}>
-            {date}
-          </Text>
+        <View
+          style={{
+            alignItems: 'center',
+            justifyContent: 'center',
+            flexDirection: 'row',
+          }}>
+          <AccidentRound />
+          <View>
+            <View
+              style={{
+                flexDirection: 'row',
+                marginLeft: 10,
+              }}>
+              <Text
+                style={{
+                  fontSize: 14,
+                  color: '#000000',
+                  fontWeight: '600',
+                }}>
+                Motion Detected
+              </Text>
+              <Text
+                style={{
+                  color: '#00000080',
+                  fontWeight: '500',
+                  marginLeft: 10,
+                }}>
+                At Living Room
+              </Text>
+            </View>
+            <Text
+              style={{
+                marginLeft: 10,
+              }}>
+              5 mins ago
+            </Text>
+          </View>
         </View>
-        <View>
-          <Text
-            style={{
-              fontWeight: '200',
-              fontSize: 15,
-            }}>
-            {`Location : ${location}`}
-          </Text>
-          <Text
-            style={{
-              fontWeight: '300',
-              fontSize: 13,
-              marginTop: 5,
-              color: 'red',
-              textAlign: 'center',
-            }}>
-            {`status :  ${status}`}
-          </Text>
+
+        <View
+          style={{
+            marginRight: 20,
+          }}>
+          <StatusBadge />
         </View>
       </View>
+      <View
+        style={{
+          marginLeft: 10,
+          marginRight: 30,
+
+          marginTop: 15,
+          height: 0.5,
+          backgroundColor: '#00000080',
+        }}
+      />
     </View>
   );
 };

@@ -5,6 +5,8 @@ import DashboardCard from '../../components/dashboardCard';
 import TempCard from '../../components/tempCard';
 import Notifications from '../../components/notifications';
 import database from '@react-native-firebase/database';
+import DeviceActive from '../../assets/deviceActive';
+import DeviceStatus from '../../components/deviceStatus';
 
 const DashboardScreen = () => {
   const [isActive, setIsActive] = useState(false);
@@ -25,16 +27,25 @@ const DashboardScreen = () => {
         flex: 1,
       }}>
       <Header />
+      <DeviceStatus isActive={isActive} />
       <View
         style={{
           flexDirection: 'row',
           marginTop: 20,
           marginHorizontal: 15,
+          marginRight: 15,
           // marginVertical: 10,
         }}>
-        <DashboardCard isActive={isActive} />
+        <DashboardCard isGasCard={false} isActive={isActive} />
+        <View
+          style={{
+            marginLeft: 6,
+          }}>
+          <DashboardCard isGasCard={true} isActive={isActive} />
+        </View>
+
         {/* <DashboardCard /> */}
-        <TempCard />
+        {/* <TempCard /> */}
       </View>
       <View
         style={{

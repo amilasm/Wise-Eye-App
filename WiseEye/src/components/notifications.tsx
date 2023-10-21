@@ -56,15 +56,16 @@ const Notifications = () => {
       style={{
         width: '100%',
         height: 390,
-        backgroundColor: '#F9F9F9',
+        // backgroundColor: '#F9F9F9',
         borderRadius: 16,
-        elevation: 2.5,
+        // elevation: 2.5,
       }}>
       <View
         style={{
-          marginHorizontal: 10,
+          // marginHorizontal: 10,
           flexDirection: 'row',
           marginTop: 20,
+          marginBottom: 25,
         }}>
         {/* <TouchableOpacity
           style={{
@@ -90,7 +91,7 @@ const Notifications = () => {
           <Text>Accident</Text>
         </TouchableOpacity> */}
         <NotificationsButton
-          text={'Accident'}
+          text={'Accidents'}
           active={isAccident}
           onPress={accidentClickHandler}
         />
@@ -105,7 +106,7 @@ const Notifications = () => {
         <FlatList
           data={accidents}
           renderItem={item => {
-            console.log('THsi si tiem', item);
+            // console.log('THsi si tiem', item);
             return (
               <View
                 style={{
@@ -124,7 +125,7 @@ const Notifications = () => {
         <FlatList
           data={voices}
           renderItem={item => {
-            console.log('THsi si tiem', item);
+            // console.log('THsi si tiem', item);
             return (
               <View
                 style={{

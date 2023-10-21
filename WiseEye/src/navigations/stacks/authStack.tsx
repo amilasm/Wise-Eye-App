@@ -3,6 +3,7 @@ import {screenNames} from '../../constants/screenNames';
 import {navConfig} from '../navigationConfigs';
 import LoginScreen from '../../activities/login/loginScreen';
 import QrScanner from '../../activities/login/qrScanner';
+import ViewLive from '../../activities/live/viewLive';
 
 const AuthStackNav = createNativeStackNavigator();
 
