@@ -1,7 +1,7 @@
 import {View, Text} from 'react-native';
 import React from 'react';
 
-const StatusBadge = ({isVoice}) => {
+const StatusBadge = ({isVoice, text}) => {
   return (
     <View
       style={{
@@ -18,7 +18,7 @@ const StatusBadge = ({isVoice}) => {
         style={{
           color: isVoice ? '#575C6C' : '#940E0E',
         }}>
-        {isVoice ? 'Voice' : 'Fell'}
+        {isVoice ? `${text}` : 'Fell'}
       </Text>
     </View>
   );

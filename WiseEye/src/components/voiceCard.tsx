@@ -81,7 +81,7 @@ const VoiceCard = ({voiceId, date, voice, status}) => {
           style={{
             marginRight: 10,
           }}>
-          <StatusBadge isVoice={true} />
+          <StatusBadge isVoice={true} text={'Voice'} />
         </View>
       </View>
       <View

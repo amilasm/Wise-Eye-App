@@ -11,6 +11,7 @@ const Header = ({isNotDashboard, text}) => {
         alignItems: 'center',
         borderBottomColor: '#F2F4F5',
         borderBottomWidth: 2,
+        backgroundColor: 'white',
         // elevation: 1.5,
       }}>
       <View

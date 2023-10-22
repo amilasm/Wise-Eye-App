@@ -1,12 +1,17 @@
-import {View, Text, FlatList} from 'react-native';
+import {View, Text, FlatList, TouchableOpacity} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import Arrow from '../../assets/arrow';
 import DotIcon from '../../assets/dotIcon';
 import ActivityCard from '../../components/activityCard';
 import database from '@react-native-firebase/database';
 import ActivityCardV2 from '../../components/activityCardV2';
+import Header from '../../components/header';
+import ArrowHead from '../../assets/arrowHead';
+import {stackNames} from '../../constants/stackNames';
+import {screenNames} from '../../constants/screenNames';
+// import {TouchableOpacity} from 'react-native-gesture-handler';
 
-const ActivityScreen = () => {
+const ActivityScreen = ({navigation}) => {
   const [activites, setActivites] = useState([]);
   useEffect(() => {
     database()
@@ -36,8 +41,8 @@ const ActivityScreen = () => {
         // Convert the groupedData object into an array of objects
         const resultArray = Object.values(groupedData);
 
-        console.log('REsult array', resultArray);
-        setActivites(resultArray);
+        console.log('REsult array', resultArray[0].Items);
+        setActivites(resultArray[0].Items);
         // setAccidents(data);
       });
   }, []);
@@ -47,7 +52,98 @@ const ActivityScreen = () => {
       style={{
         backgroundColor: 'white',
         flex: 1,
-      }}></View>
+      }}>
+      <Header isNotDashboard={true} text={'Recent Activities'} />
+      <FlatList
+        data={activites}
+        renderItem={activity => (
+          <TouchableOpacity
+            onPress={() =>
+              navigation.navigate(stackNames.ACTIVITY_STACK, {
+                screen: screenNames.ACTIVTIY_VIew,
+              })
+            }
+            style={{
+              backgroundColor: '#0000001A',
+              width: '100%',
+              height: 120,
+              borderBottomColor: '#00000080',
+              borderBottomWidth: 0.5,
+            }}>
+            <View
+              style={{
+                marginTop: 16,
+                marginLeft: 16,
+                marginBottom: 16,
+                marginRight: 16,
+              }}>
+              <Text
+                style={{
+                  fontSize: 16,
+                  fontWeight: '500',
+                  color: '#00000080',
+                }}>
+                2023/10/16
+              </Text>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
+                  marginTop: 16,
+                }}>
+                <View>
+                  <Text
+                    style={{
+                      fontSize: 22,
+                      fontWeight: '600',
+                      color: 'black',
+                    }}>
+                    200
+                  </Text>
+                  <Text
+                    style={{
+                      fontSize: 16,
+                      fontWeight: '500',
+                      color: '#00000080',
+                    }}>
+                    Total Activity Count
+                  </Text>
+                </View>
+                <View>
+                  <Text
+                    style={{
+                      fontSize: 22,
+                      fontWeight: '600',
+                      color: 'black',
+                    }}>
+                    80%
+                  </Text>
+                  <Text
+                    style={{
+                      fontSize: 16,
+                      fontWeight: '500',
+                      color: '#00000080',
+                    }}>
+                    Activity Level
+                  </Text>
+                </View>
+                <View
+                  style={{
+                    backgroundColor: '#DBDBDB',
+                    width: 24,
+                    height: 24,
+                    borderRadius: 50,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}>
+                  <ArrowHead />
+                </View>
+              </View>
+            </View>
+          </TouchableOpacity>
+        )}
+      />
+    </View>
   );
 };
 
