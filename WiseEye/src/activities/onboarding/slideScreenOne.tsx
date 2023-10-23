@@ -4,6 +4,8 @@ import SvgComponent2 from '../../assets/svgComp2';
 import SlideScreenOneImage from '../../assets/slideScreenOneImage';
 import SlideDots from '../../components/slideDots';
 import {scale} from 'react-native-size-matters';
+import OnboardinOne from '../../assets/onboardingOne';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 
 const SlideScreenOne = () => {
   return (
@@ -11,26 +13,63 @@ const SlideScreenOne = () => {
       style={{
         flex: 1,
       }}>
-      <SvgComponent2 />
-
       <View
         style={{
           justifyContent: 'center',
           alignItems: 'center',
+          marginTop: scale(50),
         }}>
-        <SlideScreenOneImage />
+        <OnboardinOne />
         <Text
           style={{
             marginBottom: scale(20),
             justifyContent: 'center',
             textAlign: 'center',
-            fontWeight: '300',
+            fontWeight: '700',
             marginTop: 10,
+            fontSize: 24,
+            color: '#09B67C',
           }}>
-          Appeal with respect to elderly people as you would to the members of
-          your own family.
+          Welcome to WiseEye
         </Text>
+        <View
+          style={{
+            width: scale(337),
+          }}>
+          <Text
+            style={{
+              marginBottom: scale(20),
+              justifyContent: 'center',
+              textAlign: 'center',
+              fontWeight: '300',
+              marginTop: 10,
+              fontSize: 18,
+            }}>
+            Your ally in elderly care, simplifying your care giving journey with
+            knowledge and support. Let's begin together.
+          </Text>
+        </View>
+
         <SlideDots oneActive={true} />
+      </View>
+      <View
+        style={{
+          marginLeft: scale(20),
+          marginRight: scale(20),
+          justifyContent: 'space-between',
+          flexDirection: 'row',
+          marginTop: scale(90),
+        }}>
+        <TouchableOpacity>
+          <Text style={{color: '#09B67CE0', fontSize: 16, fontWeight: '400'}}>
+            Skip
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Text style={{color: '#09B67CE0', fontSize: 16, fontWeight: '800'}}>
+            Next
+          </Text>
+        </TouchableOpacity>
       </View>
     </View>
   );

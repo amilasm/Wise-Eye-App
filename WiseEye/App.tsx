@@ -15,6 +15,7 @@ import database from '@react-native-firebase/database';
 
 import messaging from '@react-native-firebase/messaging';
 import {Alert} from 'react-native';
+import showNotification from './src/notifications/showNotifications';
 // import messaging from '@react-native-firebase/messaging';
 async function requestUserPermission() {
   const authStatus = await messaging().requestPermission();
@@ -41,6 +42,7 @@ function App(): JSX.Element {
 
   useEffect(() => {
     const unsubscribe = messaging().onMessage(async remoteMessage => {
+      showNotification(remoteMessage)
       Alert.alert('A new FCM message arrived!', JSON.stringify(remoteMessage));
     });
 
