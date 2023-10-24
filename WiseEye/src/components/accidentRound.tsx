@@ -1,11 +1,11 @@
 import {View, Text, Image} from 'react-native';
 import React from 'react';
 
-const AccidentRound = () => {
+const AccidentRound = ({color}) => {
   return (
     <View
       style={{
-        backgroundColor: '#FFBA55',
+        backgroundColor: color,
         borderRadius: 50,
         width: 35,
         height: 35,

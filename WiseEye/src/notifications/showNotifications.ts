@@ -16,15 +16,15 @@ const showNotification = async (data: any, HIGHIMPORTANCE = true) => {
 
   await notifee.displayNotification({
     id: 'device',
-    title: 'savedName',
-    body: "callData.call_reason + ' - Duration: ' + callData.call_duration + 'min'",
+    title: data.notification.title,
+    body: data.notification.body,
     data: {data},
     android: {
       channelId,
       smallIcon: 'ic_launcher',
 
       loopSound: true,
-      ongoing: true,
+      ongoing: data.data.ongoing == 'True' ? true : false,
       pressAction: {
         id: 'incoming-call',
         launchActivity: 'default',

@@ -49,7 +49,7 @@ const VoiceCard = ({voiceId, date, voice, status}) => {
                   fontWeight: '500',
                   marginLeft: 10,
                 }}>
-                5 mins ago
+                now
               </Text>
             </View>
             <View

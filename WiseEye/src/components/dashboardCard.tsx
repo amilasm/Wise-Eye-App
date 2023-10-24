@@ -6,7 +6,7 @@ import DeviceActive from '../assets/deviceActive';
 import DeviceDeactivated from '../assets/deviceDeactivated';
 import TempIcon from '../assets/tempIcon';
 
-const DashboardCard = ({isGasCard, isActive}) => {
+const DashboardCard = ({isGasCard, isActive, isGasHigh}) => {
   return (
     <View
       style={{
@@ -26,19 +26,49 @@ const DashboardCard = ({isGasCard, isActive}) => {
           justifyContent: 'center',
         }}>
         {isActive ? (
-          <>
-            <Text
-              style={{
-                textAlign: 'center',
-                fontSize: 52,
-                fontWeight: 700,
-                color: '#000000',
+          isGasCard && isGasHigh == true ? (
+            <>
+              <Text
+                style={{
+                  textAlign: 'center',
+                  fontSize: 52,
+                  fontWeight: 700,
+                  color: '#000000',
 
-                // marginTop: 50,
-              }}>
-              36.5C
-            </Text>
-          </>
+                  // marginTop: 50,
+                }}>
+                HIGH
+              </Text>
+            </>
+          ) : isGasCard == false && isGasHigh == false ? (
+            <>
+              <Text
+                style={{
+                  textAlign: 'center',
+                  fontSize: 52,
+                  fontWeight: 700,
+                  color: '#000000',
+
+                  // marginTop: 50,
+                }}>
+                29.4C
+              </Text>
+            </>
+          ) : (
+            <>
+              <Text
+                style={{
+                  textAlign: 'center',
+                  fontSize: 52,
+                  fontWeight: 700,
+                  color: '#000000',
+
+                  // marginTop: 50,
+                }}>
+                LOW
+              </Text>
+            </>
+          )
         ) : (
           <Text
             style={{

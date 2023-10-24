@@ -20,29 +20,39 @@ const ActivityScreen = ({navigation}) => {
         console.log('User data: ', snapshot.val());
         const data = Object.values(snapshot.val());
 
+        console.log('Data', data);
+
         // Iterate through the data and group it by date
         const groupedData = {};
-        data.forEach(item => {
-          const date = item.time.split(' ')[0]; // Extract the date part
+        // if (data != null) {
+        //   data.forEach(item => {
+        //     console.log('Item', item);
+        //     // const date = item.time?.split(' ')[0];
+        //     // Extract the date part
 
-          // Check if the date already exists in the groupedData object
-          if (groupedData[date]) {
-            // If it exists, push the item to the existing array
-            groupedData[date].Items.push(item.activity);
-          } else {
-            // If it doesn't exist, create a new object with date and Items properties
-            groupedData[date] = {
-              date,
-              Items: [item.activity],
-            };
-          }
-        });
+        //     // Check if the date already exists in the groupedData object
+        //     if (groupedData[date]) {
+        //       // If it exists, push the item to the existing array
+        //       groupedData[date].Items.push(item.activity);
+        //     } else {
+        //       // If it doesn't exist, create a new object with date and Items properties
+        //       groupedData[date] = {
+        //         date,
+        //         Items: [item.activity],
+        //       };
+        //     }
+        //   });
+        // }
 
         // Convert the groupedData object into an array of objects
-        const resultArray = Object.values(groupedData);
+        // if (groupedData != null) {
+        //   const resultArray = Object.values(groupedData);
 
-        console.log('REsult array', resultArray[0].Items);
-        setActivites(resultArray[0].Items);
+        //   console.log('REsult array', resultArray[0].Items);
+        //   setActivites(resultArray[0].Items);
+        // }
+        setActivites(data);
+
         // setAccidents(data);
       });
   }, []);
@@ -57,90 +67,96 @@ const ActivityScreen = ({navigation}) => {
       <FlatList
         data={activites}
         renderItem={activity => (
-          <TouchableOpacity
-            onPress={() =>
-              navigation.navigate(stackNames.ACTIVITY_STACK, {
-                screen: screenNames.ACTIVTIY_VIew,
-              })
-            }
-            style={{
-              backgroundColor: '#0000001A',
-              width: '100%',
-              height: 120,
-              borderBottomColor: '#00000080',
-              borderBottomWidth: 0.5,
-            }}>
-            <View
+          console.log('Activity', activity),
+          (
+            <TouchableOpacity
+              onPress={() =>
+                navigation.navigate(stackNames.ACTIVITY_STACK, {
+                  screen: screenNames.ACTIVTIY_VIew,
+                  params: activity.item,
+                })
+              }
               style={{
-                marginTop: 16,
-                marginLeft: 16,
-                marginBottom: 16,
-                marginRight: 16,
+                backgroundColor: '#0000001A',
+                width: '100%',
+                height: 120,
+                borderBottomColor: '#00000080',
+                borderBottomWidth: 0.5,
               }}>
-              <Text
-                style={{
-                  fontSize: 16,
-                  fontWeight: '500',
-                  color: '#00000080',
-                }}>
-                2023/10/16
-              </Text>
               <View
                 style={{
-                  flexDirection: 'row',
-                  justifyContent: 'space-between',
                   marginTop: 16,
+                  marginLeft: 16,
+                  marginBottom: 16,
+                  marginRight: 16,
                 }}>
-                <View>
-                  <Text
-                    style={{
-                      fontSize: 22,
-                      fontWeight: '600',
-                      color: 'black',
-                    }}>
-                    200
-                  </Text>
-                  <Text
-                    style={{
-                      fontSize: 16,
-                      fontWeight: '500',
-                      color: '#00000080',
-                    }}>
-                    Total Activity Count
-                  </Text>
-                </View>
-                <View>
-                  <Text
-                    style={{
-                      fontSize: 22,
-                      fontWeight: '600',
-                      color: 'black',
-                    }}>
-                    80%
-                  </Text>
-                  <Text
-                    style={{
-                      fontSize: 16,
-                      fontWeight: '500',
-                      color: '#00000080',
-                    }}>
-                    Activity Level
-                  </Text>
-                </View>
+                <Text
+                  style={{
+                    fontSize: 16,
+                    fontWeight: '500',
+                    color: '#00000080',
+                  }}>
+                  {activity.item.date}
+                </Text>
                 <View
                   style={{
-                    backgroundColor: '#DBDBDB',
-                    width: 24,
-                    height: 24,
-                    borderRadius: 50,
-                    justifyContent: 'center',
-                    alignItems: 'center',
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                    marginTop: 16,
                   }}>
-                  <ArrowHead />
+                  <View>
+                    <Text
+                      style={{
+                        fontSize: 22,
+                        fontWeight: '600',
+                        color: 'black',
+                      }}>
+                      {activity.item.sitting_count +
+                        activity.item.standing_count +
+                        activity.item.walking_count}
+                    </Text>
+                    <Text
+                      style={{
+                        fontSize: 16,
+                        fontWeight: '500',
+                        color: '#00000080',
+                      }}>
+                      Total Activity Count
+                    </Text>
+                  </View>
+                  {/* <View>
+                    <Text
+                      style={{
+                        fontSize: 22,
+                        fontWeight: '600',
+                        color: 'black',
+                      }}>
+                      80%
+                    </Text>
+                    <Text
+                      style={{
+                        fontSize: 16,
+                        fontWeight: '500',
+                        color: '#00000080',
+                      }}>
+                      Activity Level
+                    </Text>
+                  </View> */}
+                  <View
+                    style={{
+                      backgroundColor: '#DBDBDB',
+                      width: 24,
+                      height: 24,
+                      borderRadius: 50,
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                    }}>
+                    <ArrowHead />
+                  </View>
                 </View>
               </View>
-            </View>
-          </TouchableOpacity>
+            </TouchableOpacity>
+          )
         )}
       />
     </View>

@@ -10,12 +10,23 @@ import DeviceStatus from '../../components/deviceStatus';
 
 const DashboardScreen = () => {
   const [isActive, setIsActive] = useState(false);
+  const [isGasHigh, setIsGasHigh] = useState(false);
 
   useEffect(() => {
     database()
-      .ref('/users/001/activate_deactivate/001')
+      .ref('/users/001/activate_deactivate/')
       .on('value', snapshot => {
         setIsActive(snapshot.val().status);
+        setIsGasHigh(snapshot.val().gas);
+      });
+  }, []);
+
+  useEffect(() => {
+    database()
+      .ref('/users/001/gas_detection/')
+      .on('value', snapshot => {
+        // setIsActive(snapshot.val().status);
+        setIsGasHigh(snapshot.val().status);
       });
   }, []);
 
@@ -36,12 +47,20 @@ const DashboardScreen = () => {
           marginRight: 15,
           // marginVertical: 10,
         }}>
-        <DashboardCard isGasCard={false} isActive={isActive} />
+        <DashboardCard
+          isGasCard={false}
+          isActive={isActive}
+          isGasHigh={false}
+        />
         <View
           style={{
             marginLeft: 6,
           }}>
-          <DashboardCard isGasCard={true} isActive={isActive} />
+          <DashboardCard
+            isGasCard={true}
+            isActive={isActive}
+            isGasHigh={isGasHigh}
+          />
         </View>
 
         {/* <DashboardCard /> */}

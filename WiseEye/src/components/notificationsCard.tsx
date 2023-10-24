@@ -26,7 +26,7 @@ const NotificationsCard = ({accidentId, date, location, status}) => {
             justifyContent: 'center',
             flexDirection: 'row',
           }}>
-          <AccidentRound />
+          <AccidentRound color={'#FFBA55'} />
           <View>
             <View
               style={{
@@ -54,7 +54,7 @@ const NotificationsCard = ({accidentId, date, location, status}) => {
               style={{
                 marginLeft: 10,
               }}>
-              5 mins ago
+              now
             </Text>
           </View>
         </View>
